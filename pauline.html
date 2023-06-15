@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Popup Map</title>
+  <link rel="stylesheet"href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    // Add the tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Add markers with custom popups
+    var marker1 = L.marker([51.5, -0.09]).addTo(map);
+    marker1.bindPopup("<h2>Marker 1</h2><p>Pally Store.</p>");
+
+    var marker2 = L.marker([51.51, -0.1]).addTo(map);
+    marker2.bindPopup("<h2>Marker 2</h2><p>Saint Monica Church.</p>");
+
+    var marker3 = L.marker([51.49, -0.08]).addTo(map);
+    marker3.bindPopup("<h2>Marker 3</h2><p>Lorvae.</p>");
+  </script>
+</body>
+</html>
